@@ -1,0 +1,64 @@
+<ion-view view-title="Tank Size">
+    <ion-content>
+
+        <div style="margin: 20px">
+            {{data.length}}&nbsp;
+            {{data.lengthUnits | json}}&nbsp;
+        </div>
+
+        <div style="margin: 20px">
+
+            <div class="row">
+                <div class="col"><span class="input-label">Length:</span></div>
+                <div class="col"><input type="number" ng-model="data.length" placeholder="required" class="item item-input"></div>
+                <div class="col"><select ng-model="data.lengthUnits" class="item item-input item-select">
+                    <option ng-repeat="item in inputUnits" value="{{item.id}}">{{item.name}}</option>
+                </select></div>
+                <div class="col">{{data.length}}&nbsp;</div>
+                <div class="col">{{data.lengthUnits | json}}&nbsp;</div>
+            </div>
+
+            <div class="row">
+                <div class="col"><span class="input-label">Width:</span></div>
+                <div class="col"><input type="number" ng-model="data.width" placeholder="required" class="item item-input"></div>
+                <div class="col"><select ng-model="data.widthUnits" class="item item-input item-select">
+                    <option ng-repeat="item in inputUnits" value="{{item.id}}">{{item.name}}</option>
+                </select></div>
+                <div class="col">{{data.width}}&nbsp;</div>
+                <div class="col">{{data.widthUnits | json}}&nbsp;</div>
+            </div>
+
+            <div class="row">
+                <div class="col"><span class="input-label">Height:</span></div>
+                <div class="col"><input type="number" ng-model="data.height" placeholder="required" class="item item-input"></div>
+                <div class="col"><select ng-model="data.heightUnits" class="item item-input item-select">
+                    <option ng-repeat="item in inputUnits" value="{{item.id}}">{{item.name}}</option>
+                </select></div>
+                <div class="col">{{data.height}}&nbsp;</div>
+                <div class="col">{{data.heightUnits | json}}&nbsp;</div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col"><span class="input-label">Capacity:</span></div>
+                <div class="col"><input type="number" ng-model="data.size" placeholder="" ng-disabled="true" class="item item-input"></div>
+                <div class="col"><select ng-model="data.sizeUnits" class="item item-input item-select">
+                    <option ng-repeat="item in outputUnits" value="{{item.id}}">{{item.name}}</option>
+                </select></div>
+                <div class="col">{{data.size}}&nbsp;</div>
+                <div class="col">{{data.sizeUnits | json}}&nbsp;</div>
+            </div>
+
+            <div class="row">
+                <div class="col text-left">
+                    <button class="button" ng-click="clearInputs()">Clear</button>
+                </div>
+                <div class="col text-right">
+                    <button class="button" ng-click="calculateSize()">Calculate</button>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>
