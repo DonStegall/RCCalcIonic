@@ -49,16 +49,21 @@ rccalcApp.factory('MainMenu', function () {
     }];
 
     return {
-        all: function () {
-            return menus;
-        },
-        get: function (id) {
-            for (var i = 0; i < menus.length; i++) {
-                if (menus[i].id === parseInt(id)) {
-                    return menus[i];
-                }
-            }
-            return null;
-        }
+        all: all,
+        get: get
     };
+
+    function all() {
+        return menus;
+    }
+
+    function get(id) {
+        for (var i = 0; i < menus.length; i++) {
+            if (menus[i].id === parseInt(id)) {
+                return menus[i];
+            }
+        }
+        return null;
+    }
+
 });

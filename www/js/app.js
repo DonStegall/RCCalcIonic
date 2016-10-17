@@ -55,7 +55,7 @@ var rccalcApp = angular.module('rccalcApp', ['ionic'])
             .state('tanksize', {
                 url: '/tanksize',
                 templateUrl: 'templates/tanksize.html',
-                controller: 'TankSizeCtrl'
+                controller: 'TankSizeController'
             });
 
         // if none of the above states are matched, use this as the fallback
