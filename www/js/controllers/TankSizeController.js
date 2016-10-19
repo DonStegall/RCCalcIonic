@@ -1,6 +1,6 @@
 'use strict';
 
-rccalcApp.controller('TankSizeController', function ($scope) {
+rccalcApp.controller('TankSizeController', function ($scope,LengthConverterService) {
 
     $scope.data = {
         input1: NaN,
@@ -15,14 +15,19 @@ rccalcApp.controller('TankSizeController', function ($scope) {
 
     $scope.lengthCoEf = [ 2.54, 30.48, 91.44, 0.1, 1.0, 100.0 ];
 
-    $scope.inputUnits = [
-        {name: 'in', id: 0},
-        {name: 'ft', id: 1},
-        {name: 'yd', id: 2},
-        {name: 'mm', id: 3},
-        {name: 'cm', id: 4},
-        {name: 'm', id: 5}
-    ];
+    $scope.inputUnits = LengthConverterService.unitLabels();
+    // [
+    //     {name: 'in', id: 0},
+    //     {name: 'ft', id: 1},
+    //     {name: 'yd', id: 2},
+    //     {name: 'mm', id: 3},
+    //     {name: 'cm', id: 4},
+    //     {name: 'm', id: 5}
+    // ];
+
+    $scope.lengthConverter = function (input,unit) {
+        return LengthConverterService.converter(input,unit);
+    };
 
     $scope.volumeCoEf = [ 0.0338140225589, 0.004226752819851, 0.00211337642, 0.001056688208, 0.000264172052, 1.0, 1.0, 0.001 ];
 
@@ -48,7 +53,8 @@ rccalcApp.controller('TankSizeController', function ($scope) {
     };
 
     $scope.calculate = function() {
-        var input1Value = parseFloat($scope.data.input1) * $scope.lengthCoEf[parseInt($scope.data.input1Units)];
+        var input1Value = $scope.lengthConverter($scope.data.input1, $scope.data.input1Units);
+        //var input1Value = parseFloat($scope.data.input1) * $scope.lengthCoEf[parseInt($scope.data.input1Units)];
         var input2Value = parseFloat($scope.data.input2) * $scope.lengthCoEf[parseInt($scope.data.input2Units)];
         var input3Value = parseFloat($scope.data.input3) * $scope.lengthCoEf[parseInt($scope.data.input3Units)];
 

@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col col-20"><span class="input-label">Length:</span></div>
                 <div class="col col-10"></div>
-                <div class="col col-50"><input type="number" ng-model="data.input1" ng-change="calculate()" placeholder="required" class="item item-input"></div>
+                <div class="col col-30"><input type="number" ng-model="data.input1" ng-change="calculate()" placeholder="required" class="item item-input"></div>
                 <div class="col col-20"><select ng-model="data.input1Units" ng-change="calculate()" class="item item-input item-select">
                     <option ng-repeat="item in inputUnits" value="{{item.id}}">{{item.name}}</option>
                 </select></div>
@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col col-20"><span class="input-label">Width:</span></div>
                 <div class="col col-10"></div>
-                <div class="col col-50"><input type="number" ng-model="data.input2" ng-change="calculate()" placeholder="required" class="item item-input"></div>
+                <div class="col col-30"><input type="number" ng-model="data.input2" ng-change="calculate()" placeholder="required" class="item item-input"></div>
                 <div class="col col-20"><select ng-model="data.input2Units" ng-change="calculate()" class="item item-input item-select">
                     <option ng-repeat="item in inputUnits" value="{{item.id}}">{{item.name}}</option>
                 </select></div>
@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col col-20"><span class="input-label">Height:</span></div>
                 <div class="col col-10"></div>
-                <div class="col col-50"><input type="number" ng-model="data.input3" ng-change="calculate()" placeholder="required" class="item item-input"></div>
+                <div class="col col-30"><input type="number" ng-model="data.input3" ng-change="calculate()" placeholder="required" class="item item-input"></div>
                 <div class="col col-20"><select ng-model="data.input3Units" ng-change="calculate()" class="item item-input item-select">
                     <option ng-repeat="item in inputUnits" value="{{item.id}}">{{item.name}}</option>
                 </select></div>
@@ -43,10 +43,12 @@
 
             <div class="col"><hr></div>
 
+            <!--<input type="number" ng-model="data.output" placeholder="" ng-disabled="true" class="item item-input">-->
+
             <div class="row">
                 <div class="col col-20"><span class="input-label">Capacity:</span></div>
                 <div class="col col-10"></div>
-                <div class="col col-50"><input type="number" ng-model="data.output" placeholder="" ng-disabled="true" class="item item-input"></div>
+                <div class="col col-30"><input type="number" ng-model="data.output" class="item item-input item-positive" style="padding-left: 10px"></div>
                 <div class="col col-20"><select ng-model="data.outputUnits" ng-change="calculate()" class="item item-input item-select">
                     <option ng-repeat="item in outputUnits" value="{{item.id}}">{{item.name}}</option>
                 </select></div>
@@ -55,7 +57,7 @@
             </div>
 
             <div class="row">
-                <div class="col">
+                <div class="col col-90">
                     <div class="row">
                         <div class="col text-left">
                             <button class="button" ng-click="clearInputs()">Clear</button>
